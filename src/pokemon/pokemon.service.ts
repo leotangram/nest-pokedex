@@ -16,7 +16,9 @@ export class PokemonService {
   constructor(
     @InjectModel(Pokemon.name)
     private readonly pokemonModel: Model<Pokemon>,
-  ) {}
+  ) {
+    console.log(process.env.DEFAULT_LIMIT);
+  }
 
   async create(createPokemonDto: CreatePokemonDto) {
     createPokemonDto.name = createPokemonDto.name.toLowerCase();
@@ -31,7 +33,7 @@ export class PokemonService {
   }
 
   findAll(queryParameters: PaginationDto) {
-    const { limit = 10, offset = 0 } = queryParameters;
+    const { limit = 5, offset = 0 } = queryParameters;
 
     return this.pokemonModel
       .find()
