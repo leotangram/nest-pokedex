@@ -46,3 +46,13 @@ http://localhost:3000/api/v2/seed
 - MongoDB
 - Docker
 - Docker-compose
+
+# Production Build
+
+1. Create file `.env.prod`
+2. Fill the variables in `.env.prod` file
+3. Create the new image
+
+```
+docker-compose -f docker-compose.prod.yaml --env-file .env.prod up --build
+```
